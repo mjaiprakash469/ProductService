@@ -17,10 +17,16 @@ public class ProductController {
 	
 	@Autowired
 	PurchaseService purchaseService;
-	
+		@Autowired
+	ProductService productService;
 	
 	@GetMapping("/history{pageSize}")
 	public List<Purchase> getPurchaseHistory(@PathVariable int pageSize){
 		return purchaseService.getPurchaseHistory(pageSize);
+	}
+	@GetMapping("/product")
+	public List<ProductResponse> serach(@RequestParam String keyword){
+		return productService.getProduct(keyword);
+		
 	}
 }
