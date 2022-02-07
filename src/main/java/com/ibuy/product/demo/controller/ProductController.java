@@ -21,4 +21,3 @@ public class ProductController {
  			return productService.getProduct(id);
  		}
  	}
-
