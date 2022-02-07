@@ -7,20 +7,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ibuy.product.demo.entity.Purchase;
-import com.ibuy.product.demo.service.PurchaseService;
-
+import com.ibuy.product.demo.entity.Product;
+import com.ibuy.product.demo.service.Impl.ProductServiceImpl;
 
 @RestController
 public class ProductController {
 	
-	
 	@Autowired
-	PurchaseService purchaseService;
+	ProductServiceImpl productService;
 	
-	
-	@GetMapping("/history{pageSize}")
-	public List<Purchase> getPurchaseHistory(@PathVariable int pageSize){
-		return purchaseService.getPurchaseHistory(pageSize);
-	}
-}
+	@GetMapping("/products/{id}")
+	public Product getProduct(@PathVariable("id") int id) {
+ 			return productService.getProduct(id);
+ 		}
+ 	}
+
